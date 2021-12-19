@@ -1,2 +1,4 @@
 /vendor/
 .idea
+/logs/error.log
+/logs/other_vhosts_access.log
