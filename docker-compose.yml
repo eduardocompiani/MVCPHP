@@ -6,6 +6,7 @@ php:
     - "443:443"
   volumes:
     - ./:/var/www/html
+    - ./logs:/var/log/apache2
   links:
     - db
 db:
