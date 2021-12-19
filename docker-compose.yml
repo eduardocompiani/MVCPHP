@@ -1,0 +1,39 @@
+php:
+  container_name: php
+  build: .
+  ports:
+    - "80:80"
+    - "443:443"
+  volumes:
+    - ./:/var/www/html
+  links:
+    - db
+db:
+  container_name: pgsql
+  image: postgres:14
+  restart: always
+  ports:
+    - "5432:5432"
+  volumes:
+    - ./Dumper/init.sql:/docker-entrypoint-initdb.d/init.sql
+  environment:
+    - POSTGRES_USER=root
+    - POSTGRES_PASSWORD=root
+    - POSTGRES_DB=applicationphp
+pgadmin:
+  container_name: pgadmin
+  image: dpage/pgadmin4
+  restart: always
+  ports:
+    - "8080:80"
+  environment:
+    - PGADMIN_DEFAULT_EMAIL=root@root.com
+    - PGADMIN_DEFAULT_PASSWORD=root
+  links:
+    - db
+composer:
+  container_name: phpcomposer
+  image: composer:latest
+  command: ["composer", "install"]
+  volumes:
+    - ./:/app

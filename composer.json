@@ -1,0 +1,20 @@
+{
+  "name": "ventor/php-postgres",
+  "description": "description",
+  "minimum-stability": "stable",
+  "authors": [
+    {
+      "name": "Eduardo",
+      "email": "eduardovieiracompiani@gmail.com"
+    }
+  ],
+  "require": {
+    "ext-pdo": "*",
+    "ext-pdo_pgsql": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  }
+}
