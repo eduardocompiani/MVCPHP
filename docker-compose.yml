@@ -32,9 +32,3 @@ pgadmin:
     - PGADMIN_DEFAULT_PASSWORD=root
   links:
     - db
-composer:
-  container_name: phpcomposer
-  image: composer:latest
-  command: ["composer", "install"]
-  volumes:
-    - ./:/app
