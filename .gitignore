@@ -3,3 +3,5 @@
 /logs/error.log
 /logs/other_vhosts_access.log
 composer.lock
+phpunit-report
+.phpunit.result.cache
