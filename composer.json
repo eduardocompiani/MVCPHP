@@ -10,7 +10,8 @@
   ],
   "require": {
     "ext-pdo": "*",
-    "ext-pdo_pgsql": "*"
+    "ext-pdo_pgsql": "*",
+    "mustache/mustache": "^2.14"
   },
   "autoload": {
     "psr-4": {

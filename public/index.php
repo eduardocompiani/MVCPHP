@@ -1,10 +1,21 @@
 <?php
 
+use App\Controller\Foo;
+use App\Core\Main;
+use App\Core\Route;
+use App\Enum\ControllerDefaultMethods;
+use App\Enum\HTTPMethod;
+
 require_once "../vendor/autoload.php";
+$URI = $_SERVER['REQUEST_URI'];
 
-$app = new App\MyClass();
-echo $app->getHello();
+$router = new \App\Core\Router();
+$router->setURI($URI);
 
-error_log("Working log");
+// Definicao das rotas
+$router->addRoute(Route::createRoute(HTTPMethod::GET, '/', new App\View\Index()));
+$router->addRoute(Route::createRoute(HTTPMethod::GET, '/Teste', new Foo(), ControllerDefaultMethods::INDEX->value));
 
-\App\TestDatabase::run();
+(new Main($router))->run();
+
+//\App\TestDatabase::run();
